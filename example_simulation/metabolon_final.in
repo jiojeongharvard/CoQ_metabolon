@@ -1,0 +1,370 @@
+#######################Init Section######################
+units           real
+boundary p p p
+atom_style      full
+bond_style      harmonic
+#angle_style     hybrid harmonic cosine 
+read_data system.data extra/special/per/atom 10 
+#read_restart sim.2.restart
+
+pair_style hybrid/overlay lj/cut 10 morse 10
+#HS 1-5, patch 6-10, ligand,11-18, crowder 19, CoQ9 20
+#HS size 10 #radius
+#side size 3.5
+#ligand size 1 
+
+#HS-Side Patch, the same as sim1
+pair_coeff 1 6 lj/cut 0.01 13.5 13.5
+pair_coeff 1 7 lj/cut 0.01 13.5 13.5
+pair_coeff 1 8 lj/cut 0.01 13.5 13.5
+pair_coeff 1 9 lj/cut 0.01 13.5 13.5
+pair_coeff 1 10 lj/cut 0.01 13.5 13.5
+pair_coeff 2 6 lj/cut 0.01 13.5 13.5
+pair_coeff 2 7 lj/cut 0.01 13.5 13.5
+pair_coeff 2 8 lj/cut 0.01 13.5 13.5
+pair_coeff 2 9 lj/cut 0.01 13.5 13.5
+pair_coeff 2 10 lj/cut 0.01 13.5 13.5
+pair_coeff 3 6 lj/cut 0.01 13.5 13.5
+pair_coeff 3 7 lj/cut 0.01 13.5 13.5
+pair_coeff 3 8 lj/cut 0.01 13.5 13.5
+pair_coeff 3 9 lj/cut 0.01 13.5 13.5
+pair_coeff 3 10 lj/cut 0.01 13.5 13.5
+pair_coeff 4 6 lj/cut 0.01 13.5 13.5
+pair_coeff 4 7 lj/cut 0.01 13.5 13.5
+pair_coeff 4 8 lj/cut 0.01 13.5 13.5
+pair_coeff 4 9 lj/cut 0.01 13.5 13.5
+pair_coeff 4 10 lj/cut 0.01 13.5 13.5
+pair_coeff 5 6 lj/cut 0.01 13.5 13.5
+pair_coeff 5 7 lj/cut 0.01 13.5 13.5
+pair_coeff 5 8 lj/cut 0.01 13.5 13.5
+pair_coeff 5 9 lj/cut 0.01 13.5 13.5
+pair_coeff 5 10 lj/cut 0.01 13.5 13.5
+
+#Crowder-Side Patch, the same as sim1
+pair_coeff 6 19 lj/cut 0.01 13.5 13.5
+pair_coeff 7 19 lj/cut 0.01 13.5 13.5
+pair_coeff 8 19 lj/cut 0.01 13.5 13.5
+pair_coeff 9 19 lj/cut 0.01 13.5 13.5
+pair_coeff 10 19 lj/cut 0.01 13.5 13.5
+
+#HS-crowder
+pair_coeff 1 19 lj/cut 0.01 20 20
+pair_coeff 2 19 lj/cut 0.01 20 20
+pair_coeff 3 19 lj/cut 0.01 20 20
+pair_coeff 4 19 lj/cut 0.01 20 20
+pair_coeff 5 19 lj/cut 0.01 20 20
+
+#Crowder-crowder
+pair_coeff 19 19 lj/cut 0.01 20 20
+
+#Crowder-Ligand,the same as sim1
+pair_coeff 11 19 lj/cut 0.2 11 25
+pair_coeff 12 19 lj/cut 0.2 11 25
+pair_coeff 13 19 lj/cut 0.2 11 25
+pair_coeff 14 19 lj/cut 0.2 11 25
+pair_coeff 15 19 lj/cut 0.2 11 25
+pair_coeff 16 19 lj/cut 0.2 11 25
+pair_coeff 17 19 lj/cut 0.2 11 25
+pair_coeff 18 19 lj/cut 0.2 11 25
+
+#Ligand-Ligand, the same as sim1
+pair_coeff 11 11 lj/cut 0.01 2 2
+pair_coeff 11 12 lj/cut 0.01 2 2
+pair_coeff 11 13 lj/cut 0.01 2 2
+pair_coeff 11 14 lj/cut 0.01 2 2
+pair_coeff 11 15 lj/cut 0.01 2 2
+pair_coeff 11 16 lj/cut 0.01 2 2
+pair_coeff 11 17 lj/cut 0.01 2 2
+pair_coeff 11 18 lj/cut 0.01 2 2
+pair_coeff 12 12 lj/cut 0.01 2 2
+pair_coeff 12 13 lj/cut 0.01 2 2
+pair_coeff 12 14 lj/cut 0.01 2 2
+pair_coeff 12 15 lj/cut 0.01 2 2
+pair_coeff 12 16 lj/cut 0.01 2 2
+pair_coeff 12 17 lj/cut 0.01 2 2
+pair_coeff 12 18 lj/cut 0.01 2 2
+pair_coeff 13 13 lj/cut 0.01 2 2
+pair_coeff 13 14 lj/cut 0.01 2 2
+pair_coeff 13 15 lj/cut 0.01 2 2
+pair_coeff 13 16 lj/cut 0.01 2 2
+pair_coeff 13 17 lj/cut 0.01 2 2
+pair_coeff 13 18 lj/cut 0.01 2 2
+pair_coeff 14 14 lj/cut 0.01 2 2
+pair_coeff 14 15 lj/cut 0.01 2 2
+pair_coeff 14 16 lj/cut 0.01 2 2
+pair_coeff 14 17 lj/cut 0.01 2 2
+pair_coeff 14 18 lj/cut 0.01 2 2
+pair_coeff 15 15 lj/cut 0.01 2 2
+pair_coeff 15 16 lj/cut 0.01 2 2
+pair_coeff 15 17 lj/cut 0.01 2 2
+pair_coeff 15 18 lj/cut 0.01 2 2
+pair_coeff 16 16 lj/cut 0.01 2 2
+pair_coeff 16 17 lj/cut 0.01 2 2
+pair_coeff 16 18 lj/cut 0.01 2 2
+pair_coeff 17 17 lj/cut 0.01 2 2
+pair_coeff 17 18 lj/cut 0.01 2 2
+pair_coeff 18 18 lj/cut 0.01 2 2
+
+#HS-HS
+
+# 1 is COQ6, 2 is COQ3, 3 is COQ4, 4 is COQ5, 5 is COQ7, 20 is COQ9
+
+#Q3+Q4
+pair_coeff 2 3 lj/cut 1.35 20 50
+#Q3+Q7
+pair_coeff 2 5 lj/cut 0.80 20 50
+#Q4+Q5
+pair_coeff 3 4 lj/cut 1.59 20 50
+#Q4+Q7
+pair_coeff 3 5 lj/cut 2.16 20 50
+#Q5+Q6
+pair_coeff 1 4 lj/cut 1.13 20 50
+#Q5+Q7
+pair_coeff 4 5 lj/cut 1.65 20 50
+#Q6+Q7
+pair_coeff 1 5 lj/cut 1.66 20 50
+#Q3+Q6
+pair_coeff 1 2 lj/cut 2.54 20 50
+#Q4+Q6
+pair_coeff 1 3 lj/cut 1.58 20 50
+#Q3+Q5
+pair_coeff 2 4 lj/cut 1.76 20 50
+
+#HS-HS and unmeasured set as 1KT
+pair_coeff 1 1 lj/cut 0.6 20 50
+pair_coeff 2 2 lj/cut 0.6 20 50
+pair_coeff 3 3 lj/cut 0.6 20 50
+pair_coeff 4 4 lj/cut 0.6 20 50
+pair_coeff 5 5 lj/cut 0.6 20 50
+
+#patch-ligand cognate use 4KT
+pair_coeff 6 11 morse 2.5 1.5 5.5 8.3
+pair_coeff 6 14 morse 2.5 1.5 5.5 8.3
+pair_coeff 7 12 morse 2.5 1.5 5.5 8.3
+pair_coeff 7 17 morse 2.5 1.5 5.5 8.3
+pair_coeff 8 13 morse 2.5 1.5 5.5 8.3
+pair_coeff 9 15 morse 2.5 1.5 5.5 8.3
+pair_coeff 10 16 morse 2.5 1.5 5.5 8.3
+
+#patch-ligand non-cognate use 2KT, 0kT for final product ubiquinone and all patches
+pair_coeff 6 12 lj/cut 1.2 4.5 11.5
+pair_coeff 6 13 lj/cut 1.2 4.5 11.5
+pair_coeff 6 15 lj/cut 1.2 4.5 11.5
+pair_coeff 6 16 lj/cut 1.2 4.5 11.5
+pair_coeff 6 17 lj/cut 1.2 4.5 11.5
+pair_coeff 6 18 lj/cut 0.01 4.5 4.5
+pair_coeff 7 11 lj/cut 1.2 4.5 11.5
+pair_coeff 7 13 lj/cut 1.2 4.5 11.5
+pair_coeff 7 14 lj/cut 1.2 4.5 11.5
+pair_coeff 7 15 lj/cut 1.2 4.5 11.5
+pair_coeff 7 16 lj/cut 1.2 4.5 11.5
+pair_coeff 7 18 lj/cut 0.01 4.5 4.5
+pair_coeff 8 11 lj/cut 1.2 4.5 11.5
+pair_coeff 8 12 lj/cut 1.2 4.5 11.5
+pair_coeff 8 14 lj/cut 1.2 4.5 11.5
+pair_coeff 8 15 lj/cut 1.2 4.5 11.5
+pair_coeff 8 16 lj/cut 1.2 4.5 11.5
+pair_coeff 8 17 lj/cut 1.2 4.5 11.5
+pair_coeff 8 18 lj/cut 0.01 4.5 4.5
+pair_coeff 9 11 lj/cut 1.2 4.5 11.5
+pair_coeff 9 12 lj/cut 1.2 4.5 11.5
+pair_coeff 9 13 lj/cut 1.2 4.5 11.5
+pair_coeff 9 14 lj/cut 1.2 4.5 11.5
+pair_coeff 9 16 lj/cut 1.2 4.5 11.5
+pair_coeff 9 17 lj/cut 1.2 4.5 11.5
+pair_coeff 9 18 lj/cut 0.01 4.5 4.5
+pair_coeff 10 11 lj/cut 1.2 4.5 11.5
+pair_coeff 10 12 lj/cut 1.2 4.5 11.5
+pair_coeff 10 13 lj/cut 1.2 4.5 11.5
+pair_coeff 10 14 lj/cut 1.2 4.5 11.5
+pair_coeff 10 15 lj/cut 1.2 4.5 11.5
+pair_coeff 10 17 lj/cut 1.2 4.5 11.5
+pair_coeff 10 18 lj/cut 0.01 4.5 4.5
+
+#Patch-Patch
+pair_coeff 6 6 lj/cut 0.01 7 7
+pair_coeff 6 7 lj/cut 0.01 7 7
+pair_coeff 6 8 lj/cut 0.01 7 7
+pair_coeff 6 9 lj/cut 0.01 7 7
+pair_coeff 6 10 lj/cut 0.01 7 7
+pair_coeff 7 7 lj/cut 0.01 7 7
+pair_coeff 7 8 lj/cut 0.01 7 7
+pair_coeff 7 9 lj/cut 0.01 7 7
+pair_coeff 7 10 lj/cut 0.01 7 7
+pair_coeff 8 8 lj/cut 0.01 7 7
+pair_coeff 8 9 lj/cut 0.01 7 7
+pair_coeff 8 10 lj/cut 0.01 7 7
+pair_coeff 9 9 lj/cut 0.01 7 7
+pair_coeff 9 10 lj/cut 0.01 7 7
+pair_coeff 10 10 lj/cut 0.01 7 7
+
+#HS-Ligand 0kT for final product ubiquinone and all enzymes
+pair_coeff 1 11 lj/cut 1.2 11 27.5
+pair_coeff 1 12 lj/cut 1.2 11 27.5
+pair_coeff 1 13 lj/cut 1.2 11 27.5
+pair_coeff 1 14 lj/cut 1.2 11 27.5
+pair_coeff 1 15 lj/cut 1.2 11 27.5
+pair_coeff 1 16 lj/cut 1.2 11 27.5
+pair_coeff 1 17 lj/cut 1.2 11 27.5
+pair_coeff 1 18 lj/cut 0.01 11 11
+pair_coeff 2 11 lj/cut 1.2 11 27.5
+pair_coeff 2 12 lj/cut 1.2 11 27.5
+pair_coeff 2 13 lj/cut 1.2 11 27.5
+pair_coeff 2 14 lj/cut 1.2 11 27.5
+pair_coeff 2 15 lj/cut 1.2 11 27.5
+pair_coeff 2 16 lj/cut 1.2 11 27.5
+pair_coeff 2 17 lj/cut 1.2 11 27.5
+pair_coeff 2 18 lj/cut 0.01 11 11
+pair_coeff 3 11 lj/cut 1.2 11 27.5
+pair_coeff 3 12 lj/cut 1.2 11 27.5
+pair_coeff 3 13 lj/cut 1.2 11 27.5
+pair_coeff 3 14 lj/cut 1.2 11 27.5
+pair_coeff 3 15 lj/cut 1.2 11 27.5
+pair_coeff 3 16 lj/cut 1.2 11 27.5
+pair_coeff 3 17 lj/cut 1.2 11 27.5
+pair_coeff 3 18 lj/cut 0.01 11 11
+pair_coeff 4 11 lj/cut 1.2 11 27.5
+pair_coeff 4 12 lj/cut 1.2 11 27.5
+pair_coeff 4 13 lj/cut 1.2 11 27.5
+pair_coeff 4 14 lj/cut 1.2 11 27.5
+pair_coeff 4 15 lj/cut 1.2 11 27.5
+pair_coeff 4 16 lj/cut 1.2 11 27.5
+pair_coeff 4 17 lj/cut 1.2 11 27.5
+pair_coeff 4 18 lj/cut 0.01 11 11
+pair_coeff 5 11 lj/cut 1.2 11 27.5
+pair_coeff 5 12 lj/cut 1.2 11 27.5
+pair_coeff 5 13 lj/cut 1.2 11 27.5
+pair_coeff 5 14 lj/cut 1.2 11 27.5
+pair_coeff 5 15 lj/cut 1.2 11 27.5
+pair_coeff 5 16 lj/cut 1.2 11 27.5
+pair_coeff 5 17 lj/cut 1.2 11 27.5
+pair_coeff 5 18 lj/cut 0.01 11 11
+
+# CoQ9-HS
+#Q6+Q9
+pair_coeff 1 20 lj/cut 1.55 20 50
+#Q3+Q9
+pair_coeff 2 20 lj/cut 0.6 20 50
+#Q4+Q9
+pair_coeff 3 20 lj/cut 1.53 20 50
+#Q5+Q9
+pair_coeff 4 20 lj/cut 1.48 20 50
+#Q7+Q9
+pair_coeff 5 20 lj/cut 4.45 20 50
+
+#CoQ9 patch
+pair_coeff 6 20 lj/cut 0.01 13.5 13.5
+pair_coeff 7 20 lj/cut 0.01 13.5 13.5
+pair_coeff 8 20 lj/cut 0.01 13.5 13.5
+pair_coeff 9 20 lj/cut 0.01 13.5 13.5
+pair_coeff 10 20 lj/cut 0.01 13.5 13.5
+
+#CoQ9 ligand, 0KT with final product ubiquinone
+pair_coeff 11 20 lj/cut 1.2 11 27.5
+pair_coeff 12 20 lj/cut 1.2 11 27.5
+pair_coeff 13 20 lj/cut 1.2 11 27.5
+pair_coeff 14 20 lj/cut 1.2 11 27.5
+pair_coeff 15 20 lj/cut 1.2 11 27.5
+pair_coeff 16 20 lj/cut 1.2 11 27.5
+pair_coeff 17 20 lj/cut 1.2 11 27.5
+pair_coeff 18 20 lj/cut 0.01 11 11
+
+#crowder CoQ9
+pair_coeff 19 20 lj/cut 0.01 20 20
+
+#self interaction
+pair_coeff 20 20 lj/cut 0.6 20 50
+
+# patch-ligand k_off
+bond_coeff * 0.6 5.3
+special_bonds lj 0 0.2 0.5 angle no
+compute 1 all temp
+thermo          10000
+#Output thermodynamic information every 10,000 steps.
+
+group enz type 1 2 3 4 5 6 7 8 9 10
+group crwd type 19 20
+group reactgrp type 6 7 8 9 10 11 12 13 14 15 16 17 18 
+group lig type 11 12 13 14 15 16 17 18
+group crwdlig type 11 12 13 14 15 16 17 18 19 20
+#group fluxgrp type 6 7 8 9 10 17 18
+
+#random seed
+variable a equal 233
+
+# rigid body constraint
+fix fxrig enz rigid/nve molecule langevin 310 310 2000 $a
+fix fxlan crwd langevin 310.0 310.0 2000 $a
+fix fxlan1 lig langevin 310.0 310.0 80 $a
+fix fxnve crwdlig nve 
+timestep 25
+
+dump equi all dcd 250000 preequi.$a.dcd
+dump_modify equi unwrap yes
+
+#short equilibrium run
+run   25000000
+
+undump equi
+unfix fxrig
+unfix fxlan
+unfix fxlan1
+unfix fxnve
+
+############################Langevin Dynamics###############################
+
+fix fxrig enz rigid/nve molecule langevin 310 310 2000 $a
+fix fxlan crwd langevin 310.0 310.0 2000 $a
+fix fxlan1 lig langevin 310.0 310.0 80 $a
+fix fxnve crwdlig nve 
+timestep 25
+
+#bond/create/random written by Pierre de Buyl https://github.com/pdebuyl/lammps/tree/fbc_random/src/MC
+#6+11->6+12
+fix bondc0  reactgrp bond/create/random 10 6 11 5.5 1 prob 0.00001 $a iparam 1 6 jparam 1 12
+#7+12->7+13
+fix bondc1  reactgrp bond/create/random 10 7 12 5.5 1 prob 0.00001 $a iparam 1 7 jparam 1 13
+#8+13->8+14
+fix bondc2  reactgrp bond/create/random 10 8 13 5.5 1 prob 0.00001 $a iparam 1 8 jparam 1 14
+#6+14->6+15
+fix bondc3  reactgrp bond/create/random 10 6 14 5.5 1 prob 0.00001 $a iparam 1 6 jparam 1 15
+#9+15->9+16
+fix bondc4  reactgrp bond/create/random 10 9 15 5.5 1 prob 0.00001 $a iparam 1 9 jparam 1 16
+#10+16->10+17
+fix bondc5  reactgrp bond/create/random 10 10 16 5.5 1 prob 0.00001 $a iparam 1 10 jparam 1 17
+#7+17->7+18
+fix bondc6  reactgrp bond/create/random 10 7 17 5.5 1 prob 0.00001 $a iparam 1 7 jparam 1 18
+
+#dump file for channeling analysis 
+compute flux reactgrp property/local btype batom1 batom2
+dump bondinfo reactgrp local 10 bond_data.txt c_flux[1] c_flux[2] c_flux[3]
+
+fix bondbr1 reactgrp bond/break 10 1 5.5 prob 1 $a
+
+#dump file for coenzyme q yield
+variable netbond equal f_bondc6[2]
+variable tstep equal step
+thermo_style custom step ebond etotal temp f_bondc0[2] f_bondc1[2] f_bondc2[2] f_bondc3[2] f_bondc4[2] f_bondc5[2] f_bondc6[2] f_bondbr1[2]
+timestep 25
+
+restart 300000 sim1.1.restart sim1.2.restart
+
+#dump file for trajectory
+dump dyn all dcd 30000 equi1.$a.dcd
+dump_modify dyn unwrap yes
+
+#another dump file for channeling analysis 
+dump dyn2 all custom 30000 atomtype.$a.dump id type x y z
+
+
+#fix rukja all halt 10000 v_netbond >= 700
+run   600000000
+
+undump dyn
+undump dyn2
+undump bondinfo
+unfix fxrig
+unfix fxlan
+unfix fxlan1
+unfix fxnve
+clear
