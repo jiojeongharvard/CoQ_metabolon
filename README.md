@@ -14,3 +14,15 @@ This project uses coarse-grained molecular dynamics simulations to investigate h
 - **Network Optimization**: The experimentally observed COQ interaction network is evolutionarily selected to promote formation of complete enzyme clusters
 
 ## Repository Structure
+
+CoQ_metabolon/
+├── example_simulation/ # Example LAMMPS simulation setup
+│ ├── metabolon_final.in # Main LAMMPS input file
+│ ├── system.data # System data file with particle coordinates
+│ └── generate_system_data/ # Scripts to generate initial configurations
+├── analysis/ # Analysis tools and utilities
+│ ├── utils.py # Core analysis functions
+│ ├── paper_figures.ipynb # Jupyter notebook generating paper figures
+│ ├── cluster_analysis_code/ # VMD/TCL scripts for cluster analysis
+│ └── rdf_code/ # Radial distribution function analysis
+└── README.md # This file
