@@ -1,10 +1,10 @@
 # Enzyme Clusters and Reaction Simulation in CoQ Biosynthesis
 
-This repository contains the computational framework and analysis tools for the research described in the paper "Complete Enzyme Clustering Enhances Substrate Channeling in Coenzyme Q Biosynthesis" by Wang et al.
+This repository contains the computational framework and analysis tools for the research described in the paper ["Complete Enzyme Clustering Enhances Substrate Channeling in Coenzyme Q Biosynthesis"] (https://www.biorxiv.org/content/10.1101/2025.05.24.655883v1) by Wang et al.
 
 ## 📖 Overview
 
-This project uses coarse-grained molecular dynamics simulations to investigate how metabolon formation (transient assemblies of sequential metabolic enzymes) enhances metabolic flux in the coenzyme Q (CoQ) biosynthetic pathway. The simulations model the COQ metabolon using experimentally measured protein-protein interaction strengths and demonstrate that complete enzyme clustering enables substrate channeling, dramatically enhancing CoQ production efficiency.
+This project uses coarse-grained molecular dynamics simulations to investigate how transient assemblies of sequential metabolic enzymes enhances reaction flux in the coenzyme Q (CoQ) biosynthetic pathway. The simulations model the COQ metabolon using experimentally measured protein-protein interaction strengths and demonstrate that complete enzyme clustering enables substrate channeling, dramatically enhancing CoQ production efficiency.
 
 ## 🔍 Key Findings
 
@@ -21,7 +21,7 @@ CoQ_metabolon/
 │   ├── system.data              # System data file with particle coordinates
 │   └── generate_system_data/   # Scripts to generate initial configurations
 ├── analysis/                    # Analysis tools and figure generation
-│   ├── utils.py                 # Core analysis functions (Python)
+│   ├── utils.py                 # Core analysis functions 
 │   ├── paper_figures.ipynb     # Jupyter notebook to reproduce paper figures
 │   ├── cluster_analysis_code/  # VMD/TCL scripts for cluster detection
 │   └── rdf_code/                # Radial distribution function analysis tools
@@ -90,7 +90,7 @@ If you use this code in your research, please cite:
 ```
 ## Contact
 
-For questions about the code or methodology, please contact:
+For questions about the code, please contact:
 - **Dianzhuo(John) Wang**: johnwang@g.harvard.edu
 - **Jio Jeong**: jiojeong@g.harvard.edu 
 
