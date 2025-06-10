@@ -13,6 +13,7 @@ This project uses coarse-grained molecular dynamics simulations to investigate h
 - **Completeness Over Fine Structure**: Metabolon completeness (containing all required enzymes) rather than precise spatial arrangement is essential for efficient substrate channeling
 - **Network Optimization**: The experimentally observed COQ interaction network is evolutionarily selected to promote formation of complete enzyme clusters
 
+## 📁 Repository Structure
 CoQ_metabolon/
 ├── example_simulation/          # Example LAMMPS simulation setup
 │   ├── metabolon_final.in       # Main LAMMPS input file
@@ -58,3 +59,40 @@ CoQ_metabolon/
 - Identifies enzyme clusters using distance-based criteria
 - Tracks cluster size, composition, and completeness over time
 - Analyzes substrate channeling efficiency
+
+## Data Format
+
+### Input Files
+- `system.data`: LAMMPS data file with initial particle positions and topology
+- `metabolon_final.in`: LAMMPS input script with simulation parameters
+
+### Output Files
+- `output.log`: LAMMPS log file with thermodynamic data and reaction counts
+- `cluster_results_skip_first_frame/`: Cluster analysis results
+- Trajectory files for visualization and further analysis
+
+## Citation
+
+If you use this code in your research, please cite:
+```bibtex
+@article {Wang2025.05.24.655883,
+	author = {Wang, Dianzhuo and Gottinger, Andrea and Jeong, Jio and Nicoll, Callum R. and Liu, Junlang and Kadav, Tereza and Cecchini, Domiziana and Malatesta, Marco and Heck, Albert J.R. and Mattevi, Andrea and Shakhnovich, Eugene},
+	title = {Complete Enzyme Clustering Enhances Coenzyme Q Biosynthesis via Substrate Channeling},
+	elocation-id = {2025.05.24.655883},
+	year = {2025},
+	doi = {10.1101/2025.05.24.655883},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2025/05/28/2025.05.24.655883},
+	eprint = {https://www.biorxiv.org/content/early/2025/05/28/2025.05.24.655883.full.pdf},
+	journal = {bioRxiv}
+    }
+```
+## Contact
+
+For questions about the code or methodology, please contact:
+- **Dianzhuo(John) Wang: johnwang@g.harvard.edu
+- **Jio Jeong**: jiojeong@g.harvard.edu 
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
