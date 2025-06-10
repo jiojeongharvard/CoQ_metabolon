@@ -2,11 +2,11 @@
 
 This repository contains the computational framework and analysis tools for the research described in the paper "Complete Enzyme Clustering Enhances Substrate Channeling in Coenzyme Q Biosynthesis" by Wang et al.
 
-## Overview
+## 📖 Overview
 
 This project uses coarse-grained molecular dynamics simulations to investigate how metabolon formation (transient assemblies of sequential metabolic enzymes) enhances metabolic flux in the coenzyme Q (CoQ) biosynthetic pathway. The simulations model the COQ metabolon using experimentally measured protein-protein interaction strengths and demonstrate that complete enzyme clustering enables substrate channeling, dramatically enhancing CoQ production efficiency.
 
-## Key Findings
+## 🔍 Key Findings
 
 - **Enzyme Clustering Enhances Flux**: Complete metabolon clustering dramatically improves metabolic flux through substrate channeling
 - **Phase Transition Behavior**: The COQ metabolon operates at the critical region of a phase-like transition where small changes in protein-protein interaction strength can affect both enzyme clustering and metabolic output
@@ -27,7 +27,7 @@ CoQ_metabolon/
 └── README.md                    # This file
 
 
-## Simulation Model
+## ⚙️ Simulation Model
 
 ### Coarse-Grained Representation
 - **Enzymes (COQ3-7, COQ9)**: Hard spheres (radius 10 Å) with adhesive interaction sites (radius 3.5 Å) representing active sites
@@ -46,7 +46,7 @@ CoQ_metabolon/
 - **Production run**: 7.5-15 μs depending on analysis
 - **System size**: 800 Å cubic box
 
-## Analysis Tools
+## 📊 Analysis Tools
 
 ### Core Functions (`analysis/utils.py`)
 - `readlogfile()`: Parse LAMMPS output files
@@ -60,7 +60,7 @@ CoQ_metabolon/
 - Tracks cluster size, composition, and completeness over time
 - Analyzes substrate channeling efficiency
 
-## Data Format
+## 📂 Data Format
 
 ### Input Files
 - `system.data`: LAMMPS data file with initial particle positions and topology
