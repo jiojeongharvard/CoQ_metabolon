@@ -24,3 +24,37 @@ CoQ_metabolon/
 │   ├── cluster_analysis_code/  # VMD/TCL scripts for cluster detection
 │   └── rdf_code/                # Radial distribution function analysis tools
 └── README.md                    # This file
+
+
+## Simulation Model
+
+### Coarse-Grained Representation
+- **Enzymes (COQ3-7, COQ9)**: Hard spheres (radius 10 Å) with adhesive interaction sites (radius 3.5 Å) representing active sites
+- **Substrates/Products**: Hard spheres (radius 1 Å) representing metabolic intermediates
+- **Crowders**: Hard spheres (radius 10 Å) without active sites
+
+### Interaction Parameters
+- **Protein-protein interactions (εenz-enz)**: Based on experimentally measured Kd constants
+- **Active site-substrate interactions (εpatch-lig)**: 4kT for cognate pairs, 2kT for non-cognate
+- **Enzyme-substrate interactions (εenz-lig)**: 2kT (non-specific binding)
+
+### Key Simulation Parameters
+- **Temperature**: 310 K (physiological)
+- **Integration timestep**: 25 fs
+- **Equilibration**: 625 ns
+- **Production run**: 7.5-15 μs depending on analysis
+- **System size**: 800 Å cubic box
+
+## Analysis Tools
+
+### Core Functions (`analysis/utils.py`)
+- `readlogfile()`: Parse LAMMPS output files
+- `average_runs()`: Average results across multiple simulation runs
+- `readcluster()`: Analyze cluster formation and composition
+- `read_complete_clusters()`: Track complete metabolon formation
+- `average_counts_atom_type()`: Monitor substrate/product concentrations
+
+### Cluster Analysis (`cluster_analysis_code/`)
+- Identifies enzyme clusters using distance-based criteria
+- Tracks cluster size, composition, and completeness over time
+- Analyzes substrate channeling efficiency
