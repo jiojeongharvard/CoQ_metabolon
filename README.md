@@ -1,4 +1,4 @@
-# COQ Metabolon: Complete Enzyme Clustering Enhances Substrate Channeling in Coenzyme Q Biosynthesis
+# Enzyme Clusters and Reaction Simulation in CoQ Biosynthesis
 
 This repository contains the computational framework and analysis tools for the research described in the paper "Complete Enzyme Clustering Enhances Substrate Channeling in Coenzyme Q Biosynthesis" by Wang et al.
 
@@ -14,6 +14,7 @@ This project uses coarse-grained molecular dynamics simulations to investigate h
 - **Network Optimization**: The experimentally observed COQ interaction network is evolutionarily selected to promote formation of complete enzyme clusters
 
 ## 📁 Repository Structure
+```
 CoQ_metabolon/
 ├── example_simulation/          # Example LAMMPS simulation setup
 │   ├── metabolon_final.in       # Main LAMMPS input file
@@ -25,7 +26,7 @@ CoQ_metabolon/
 │   ├── cluster_analysis_code/  # VMD/TCL scripts for cluster detection
 │   └── rdf_code/                # Radial distribution function analysis tools
 └── README.md                    # This file
-
+```
 
 ## ⚙️ Simulation Model
 
@@ -90,9 +91,9 @@ If you use this code in your research, please cite:
 ## Contact
 
 For questions about the code or methodology, please contact:
-- **Dianzhuo(John) Wang: johnwang@g.harvard.edu
+- **Dianzhuo(John) Wang**: johnwang@g.harvard.edu
 - **Jio Jeong**: jiojeong@g.harvard.edu 
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License 
