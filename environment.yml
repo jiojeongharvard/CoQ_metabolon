@@ -1,0 +1,16 @@
+name: new_metabolon
+channels:
+  - conda-forge
+dependencies:
+  - jupyter
+  - matplotlib
+  - numpy
+  - pandas
+  - scipy
+  - ca-certificates
+  - certifi
+  - openssl
+  - networkx
+  - scikit-learn
+  - seaborn
+prefix: /n/home06/jiojeong/.conda/envs/new_metabolon

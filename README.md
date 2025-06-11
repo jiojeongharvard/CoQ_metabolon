@@ -6,25 +6,19 @@ This repository contains the computational framework and analysis tools for the 
 
 This project uses coarse-grained molecular dynamics simulations to investigate how transient assemblies of sequential metabolic enzymes enhances reaction flux in the coenzyme Q (CoQ) biosynthetic pathway. The simulations model the COQ metabolon using experimentally measured protein-protein interaction strengths and demonstrate that complete enzyme clustering enables substrate channeling, dramatically enhancing CoQ production efficiency.
 
-## 🔍 Key Findings
-
-- **Enzyme Clustering Enhances Flux**: Complete metabolon clustering dramatically improves metabolic flux through substrate channeling
-- **Phase Transition Behavior**: The COQ metabolon operates at the critical region of a phase-like transition where small changes in protein-protein interaction strength can affect both enzyme clustering and metabolic output
-- **Completeness Over Fine Structure**: Metabolon completeness (containing all required enzymes) rather than precise spatial arrangement is essential for efficient substrate channeling
-- **Network Optimization**: The experimentally observed COQ interaction network is evolutionarily selected to promote formation of complete enzyme clusters
-
 ## 📁 Repository Structure
 ```
 CoQ_metabolon/
 ├── example_simulation/          # Example LAMMPS simulation setup
 │   ├── metabolon_final.in       # Main LAMMPS input file
-│   ├── system.data              # System data file with particle coordinates
-│   └── generate_system_data/   # Scripts to generate initial configurations
+│   ├── system.data              # LAMMPS data file with initial particle coordinates
+│   └── generate_system_data/   # Script to generate system.data
 ├── analysis/                    # Analysis tools and figure generation
 │   ├── utils.py                 # Core analysis functions 
-│   ├── paper_figures.ipynb     # Jupyter notebook to reproduce paper figures
-│   ├── cluster_analysis_code/  # VMD/TCL scripts for cluster detection
+│   ├── paper_figures.ipynb     # Jupyter notebook used to produce paper figures
+│   ├── cluster_analysis_code/  # VMD/TCL scripts for enzyme cluster detection  using distance-based criteria
 │   └── rdf_code/                # Radial distribution function analysis tools
+├── environments.yml			# Needed for conda environment generation
 └── README.md                    # This file
 ```
 
@@ -47,30 +41,13 @@ CoQ_metabolon/
 - **Production run**: 7.5-15 μs depending on analysis
 - **System size**: 800 Å cubic box
 
-## 📊 Analysis Tools
+## 📊 Simulation and Analysis Pipeline
 
-### Core Functions (`analysis/utils.py`)
-- `readlogfile()`: Parse LAMMPS output files
-- `average_runs()`: Average results across multiple simulation runs
-- `readcluster()`: Analyze cluster formation and composition
-- `read_complete_clusters()`: Track complete metabolon formation
-- `average_counts_atom_type()`: Monitor substrate/product concentrations
-
-### Cluster Analysis (`cluster_analysis_code/`)
-- Identifies enzyme clusters using distance-based criteria
-- Tracks cluster size, composition, and completeness over time
-- Analyzes substrate channeling efficiency
-
-## 📂 Data Format
-
-### Input Files
-- `system.data`: LAMMPS data file with initial particle positions and topology
-- `metabolon_final.in`: LAMMPS input script with simulation parameters
-
-### Output Files
-- `output.log`: LAMMPS log file with thermodynamic data and reaction counts
-- `cluster_results_skip_first_frame/`: Cluster analysis results
-- Trajectory files for visualization and further analysis
+- Create conda environment using environment.yml
+- Run LAMMPS simulation with metabolon.in and system.data. 
+- Once simulation finishes, run "source run_all.tcl" in VMD for cluster analysis and rdf analysis
+- Run fix.indexing.ipynb on result to update VMD's 1-indexing to 0-indexing before analysis
+- Use appropriate functions in utils.py for analysis
 
 ## Citation
 
