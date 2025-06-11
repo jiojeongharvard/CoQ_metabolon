@@ -9,17 +9,21 @@ This project uses coarse-grained molecular dynamics simulations to investigate h
 ## 📁 Repository Structure
 ```
 CoQ_metabolon/
-├── example_simulation/          # Example LAMMPS simulation setup
-│   ├── metabolon_final.in       # Main LAMMPS input file
-│   ├── system.data              # LAMMPS data file with initial particle coordinates
-│   └── generate_system_data/   # Script to generate system.data
-├── analysis/                    # Analysis tools and figure generation
-│   ├── utils.py                 # Core analysis functions 
-│   ├── paper_figures.ipynb     # Jupyter notebook used to produce paper figures
-│   ├── cluster_analysis_code/  # VMD/TCL scripts for enzyme cluster detection  using distance-based criteria
-│   └── rdf_code/                # Radial distribution function analysis tools
-├── environments.yml			# Needed for conda environment generation
-└── README.md                    # This file
+├── example_simulation/                     # Example LAMMPS simulation setup
+│   ├── metabolon_final.in                  # Main LAMMPS input file
+│   ├── system.data                         # LAMMPS data file with initial particle coordinates
+│   └── generate_system_data.py             # Script to generate system.data
+│
+├── analysis/                               # Analysis tools and figure generation
+│   ├── utils.py                            # Core analysis functions
+│   ├── fix_indexing.ipynb                  # Converts VMD 1-based indexing to 0-based indexing
+│   ├── paper_figures.ipynb                 # Jupyter notebook for paper figure generation
+│   ├── cluster_analysis_code/              # VMD/TCL scripts for enzyme cluster detection
+│   └── rdf_code/                           # VMD/TCL scripts for Radial distribution function analysis
+│
+├── environments.yml                        # Conda environment specification file
+└── README.md                               # Project documentation (this file)
+
 ```
 
 ## ⚙️ Simulation Model
@@ -43,11 +47,11 @@ CoQ_metabolon/
 
 ## 📊 Simulation and Analysis Pipeline
 
-- Create conda environment using environment.yml
-- Run LAMMPS simulation with metabolon.in and system.data. 
-- Once simulation finishes, run "source run_all.tcl" in VMD for cluster analysis and rdf analysis
-- Run fix.indexing.ipynb on result to update VMD's 1-indexing to 0-indexing before analysis
-- Use appropriate functions in utils.py for analysis
+- Create the Conda environment using the provided environment.yml
+- Execute LAMMPS simulation with metabolon.in and system.data input files. 
+- After the simulation finishes, open VMD and run "source run_all.tcl" for cluster analysis and rdf analysis
+- VMD uses 1-based indexing. To convert to 0-based indexing (for Python analysis), run fix_indexing.ipynb
+- Use appropriate functions in analysis/utils.py for analysis
 
 ## Citation
 
