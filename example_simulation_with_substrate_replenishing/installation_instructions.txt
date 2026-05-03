@@ -1,0 +1,81 @@
+LAMMPS (3Mar2020) Installation with MPI + Python (Conda)
+
+This guide documents the installation of LAMMPS version 3Mar2020 with MPI and Python support in a Conda environment on an HPC system.
+
+1. Load required modules
+module purge
+module load gcc
+module load cmake
+module load openmpi
+module load python
+
+Verify Python path:
+
+which python
+
+2. Identify Python include and library paths
+python -c "from distutils import sysconfig; print(sysconfig.get_config_vars('LIBDIR', 'INCLUDEPY'))"
+
+Example output:
+['/n/sw/Miniforge3-24.11.3-0/lib', '/n/sw/Miniforge3-24.11.3-0/include/python3.12']
+
+Confirm Python shared library exists:
+ls /n/sw/Miniforge3-24.11.3-0/lib/libpython3.12.so
+
+3. Prepare build directory
+cd lammps-3Mar20
+rm -rf build
+mkdir build
+cd build
+
+4. Configure build with CMake
+cmake ../cmake \
+  -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX \
+  -DBUILD_MPI=on \
+  -DBUILD_LIB=on \
+  -DBUILD_SHARED_LIBS=on \
+  -DPKG_MC=on \
+  -DPKG_MISC=on \
+  -DPKG_MOLECULE=on \
+  -DPKG_RIGID=on \
+  -DPKG_MANYBODY=on \
+  -DPKG_USER-MISC=on \
+  -DPKG_USER-COLVARS=on \
+  -DPKG_PYTHON=on \
+  -DPYTHON_INCLUDE_DIR=/n/sw/Miniforge3-24.11.3-0/include/python3.12 \
+  -DPYTHON_LIBRARY=/n/sw/Miniforge3-24.11.3-0/lib/libpython3.12.so
+
+5. Compile and install
+make -j$(nproc)
+make install
+
+6. Install Python bindings
+make install-python
+
+7. Verify installation
+
+Check Python import:
+python -c "import lammps; print(lammps.__file__)"
+
+Check LAMMPS executable:
+lmp -h
+
+8. Verify Python package location
+ls $CONDA_PREFIX/lib/python3.12/site-packages/lammps
+
+9. Fix runtime library path
+Create activation script:
+mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+
+echo "export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:\$LD_LIBRARY_PATH" \
+> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+
+Reactivate environment:
+conda deactivate
+conda activate myenv
+
+10. Runtime requirements
+
+Before running LAMMPS:
+module load gcc
+module load openmpi

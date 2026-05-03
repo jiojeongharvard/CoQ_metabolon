@@ -53,6 +53,10 @@ CoQ_metabolon/
 - VMD uses 1-based indexing. To convert to 0-based indexing (for Python analysis), run fix_indexing.ipynb
 - Use appropriate functions in analysis/utils.py for analysis
 
+## Software versions
+- LAMMPS version 12Dec2018 (stable) was used for all simulations, except for substrate replenishing simulations (LAMMPS version 3Mar2020 linked to python 3.12)
+- VMD version 1.9.4a57
+
 ## Citation
 
 If you use this code in your research, please cite:
